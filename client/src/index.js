@@ -1,0 +1,21 @@
+import "../src/main.scss";
+
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import reducers from "./reducers"
+
+import App from "./App"
+
+//create store for react redux - global variables
+//we have added "posts" reducer to the store, which means we can use it from now on
+const store = createStore(reducers, compose(applyMiddleware(thunk)))
+
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>, 
+document.getElementById("root")
+);
