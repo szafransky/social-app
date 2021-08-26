@@ -11,7 +11,7 @@ import App from "./App"
 
 //create store for react redux - global variables
 //we have added "posts" reducer to the store, which means we can use it from now on
-const store = createStore(reducers, compose(applyMiddleware(thunk)))
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
 <Provider store={store}>

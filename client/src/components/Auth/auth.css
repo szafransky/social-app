@@ -1,0 +1,58 @@
+.auth-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 80vh;
+}
+
+.form-auth {
+    width: 420px;
+    padding: 20px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+   
+}
+
+.sign-btn, .google-btn {
+    flex: 1;
+}
+
+.sign-btn {
+    margin-right: 10px;
+}
+
+
+.google-btn {
+    margin-left: 10px;
+}
+.form-buttons {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.switcher {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.switcher button {
+    width: 100%;
+    border: unset;
+    background: unset;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .auth-container {
+        height: 75vh;
+    }
+
+    .form-auth {
+        margin: 0 10px;
+        border: unset;
+    }
+
+}
+
+

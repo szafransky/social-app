@@ -1,0 +1,121 @@
+.nav-bar nav {
+    /* box-shadow: 0px 7px 14px -11px rgb(0 0 0 / 75%); */
+    box-shadow: rgb(0 0 0 / 15%) 1px 1px 6px 2px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.logo {
+    cursor: pointer;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+
+
+
+.user-container button {
+    /* width: 100px; */
+}
+
+nav h1 {
+    margin-left: 40px;
+}
+
+.user-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.user-data p {
+    margin: 0 10px;
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.user-photo .initial {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.myChipInput div div {
+    margin: 3px !important;
+}
+
+
+
+.myChipInput div::before{
+    border-bottom: unset;
+    display: none;
+}
+
+.myChipInput div::before:active{
+    border-bottom: unset;
+}
+
+
+.myChipInput div::before:focus{
+    border-bottom: unset;
+}
+
+.myChipInput div::after{
+    border-bottom: unset;
+}
+
+.myChipInput div div .MuiInputBase-input:focus {
+    outline: unset !important;
+    box-shadow: none !important;
+}
+
+input:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+@media only screen and (max-width: 780px) {
+    .logo {
+       margin-left: unset;
+       flex: 1;
+       font-size: 26px;
+       padding: 0 10px;
+       font-weight: 400;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .user-container {
+        flex-direction: row;
+        padding-right: unset;
+        padding-bottom: 20px;
+    }
+
+    .user-container .user-data {
+        margin: unset;
+    }
+
+    .btn:focus {
+        outline: 0 !important;
+        box-shadow: none !important;
+    }
+
+}
+

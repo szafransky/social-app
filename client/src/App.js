@@ -1,31 +1,48 @@
-import React, { useEffect } from 'react'
-import Posts from './components/Posts/Posts'
-import Form from './components/Form/Form'
-import { useDispatch } from 'react-redux'
-import { getPosts } from './actions/posts'
+import React, { useEffect, useState } from 'react'
+import Navbar from './components/Navbar/Navbar'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import Home from './components/Home/Home'
+import Auth from './components/Auth/Auth'
+import PostDetails from './components/PostDetails/PostDetails'
+import { useSelector } from 'react-redux'
+import Footer from './components/Footer/Footer'
+
+
 
 function App() {
 
-    const dispatch = useDispatch();
+    const { authData } = useSelector((state) => state.auth);
+    console.log(authData);
+    
 
-    useEffect(() => {
-       dispatch(getPosts());
+   let user = JSON.parse(localStorage.getItem('profile'));
 
-    }, [dispatch])
+   console.log(user);
+   console.log("user in app");
+   
+   useEffect(() => {
+    user = JSON.parse(localStorage.getItem('profile'));
+
+    console.log(user);
+    
+      
+   }, [JSON.parse(localStorage.getItem('profile'))])
 
 
     return (
-        <div className="app">
-            <h1 className="mt-4 text-center">Social Club</h1>
-            <div class="main-container container-fluid row mt-5 justify-content-center">
-                <div className="post col-lg-6 col-sm-12">
-                    <Posts />
-                </div>
-                <div className="form col-lg-3 col-sm-12">
-                    <Form />
-                </div>
+        <BrowserRouter>
+            <div className="app">
+                <Navbar />
+                <Switch>
+                    <Route path='/' exact component={() => <Redirect to='/posts' />}/>
+                    <Route path='/posts' exact component={Home} />
+                    <Route path='/posts/search' exact component={Home} />
+                    <Route path='/posts/:id' exact component={PostDetails} />
+                    <Route path='/auth' exact component={() => (!user ? <Auth /> : <Redirect to='/posts' />)} />
+                </Switch>
+                <Footer />
             </div>
-        </div>
+        </BrowserRouter>
     )
 }
 

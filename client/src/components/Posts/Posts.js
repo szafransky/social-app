@@ -2,24 +2,20 @@ import React from 'react'
 import Post from './Post/Post'
 import { useSelector } from 'react-redux'
 
-function Posts() {
+function Posts( { setCurrentId }) {
 
-    const posts = useSelector((state) => state.posts);
-    console.log(posts);
-    
+    const { posts, isLoading } = useSelector((state) => state.posts);
+
+    if(!posts.length && !isLoading) return 'No posts';
+
+    if(isLoading) return <div class="row align-items-center justify-content-center"><div class="spinner-border mt-5 d-flex" role="status"></div></div>
+
     return (
         <div class="row align-items-center">
            
-            {
-                 !posts.length ? 
-                 <div class="spinner-border mt-5" role="status">
-                
-               </div> : (posts.map((el, key) => {
-                   console.log(el);
-                   
-                     return <Post post={el}/>
-               }))
-            }
+            { (posts.map((el, key) => {
+                  return <Post post={el} setCurrentId={setCurrentId} />
+               }))}
             
         </div>
     )

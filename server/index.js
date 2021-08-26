@@ -10,15 +10,23 @@ npm install body-parser cors express mongoose nodemon
 mongodb+srv://admin-blazej:<password>@cluster0.r7tft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 */
 
+
+//authorisation packages to install
+//bcrypt
+//jsonwebtoken
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv' 
 
 //routes
 import postRoutes  from './routes/posts.js'
+import userRoutes  from './routes/users.js' 
 
 const app = express();
+dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: "true" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: "true" }));
@@ -26,18 +34,21 @@ app.use(cors());
 
 //the code below allows us the use of all endpoints for /posts
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
+
+app.get('/', (req,res) => {
+    res.send('Hello to my social app project API');
+})
 
 
 
-
-
-const CONNECTION_URL = "mongodb+srv://admin-blazej:MyNewPassword123@cluster0.r7tft.mongodb.net/socialmediaapp?retryWrites=true&w=majority"
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+
+mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         app.listen(PORT, () => {
-            console.log("Listening on port 5000");
+            console.log("Listening on port: " + PORT); 
         })
     })
     .catch((error) => {
