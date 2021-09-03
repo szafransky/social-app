@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://app-szafranski-net.herokuapp.com' });
+// const API = axios.create({ baseURL: 'http://localhost:5000' });
 
 // const url = 'http://localhost:5000/posts';
 
@@ -26,3 +27,6 @@ export const comment = (value, id) => API.post(`/posts/${id}/commentPost`, { val
 
 export const signIn = (formData) => API.post(`/user/signin`, formData);
 export const signUp = (formData) => API.post(`/user/signup`, formData);
+export const fetchUser = (id) => API.get(`/user/${id}`);
+export const updateUser = (id, updatedUser) => API.patch(`/user/${id}`, updatedUser);
+export const fetchUsers = () => API.get('/user/all');

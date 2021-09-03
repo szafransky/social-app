@@ -17,10 +17,13 @@ const CommentSection = ({ post }) => {
 
     const handleClick = async () => {
         const finalComment = `${user?.result?.name}: ${comment}`;
-        dispatch(commentPost(finalComment, post._id));
-        setComments([...comments, finalComment]);
+        
+        const newComments = await dispatch(commentPost(finalComment, post._id));
+        setComments(newComments);
         setComment('');
+
         commentsRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        
     }
     
     return (

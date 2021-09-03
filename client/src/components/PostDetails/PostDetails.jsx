@@ -46,7 +46,7 @@ const PostDetails = () => {
 
 
     if(isLoading) {
-        return  <div class="row align-items-center justify-content-center loader"><div class="spinner-border mt-5 d-flex" role="status"></div></div>
+       
     }
     
     if(!post) return  <div class="row align-items-center justify-content-center loader"><div class="spinner-border mt-5 d-flex" role="status"></div></div>;

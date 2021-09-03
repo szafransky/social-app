@@ -52,7 +52,7 @@ function Post( { post, setCurrentId } ) {
                             <h2 className="post-author">{post.name}</h2>
                             <h2 className="post-createdAt">{moment(post.createdAt).fromNow()}</h2>
                         </div>
-                        {(user?.result?.googleId === post?.author || user?.result?._id === post?.author) && <h5 className="three-dots" onClick= {() => setCurrentId(post._id)}>...</h5>}
+                        {(user?.result?.googleId === post?.author || user?.result?._id === post?.author) && <h5 className="three-dots" onClick= {() => setCurrentId(post._id)}>Edit</h5>}
                         </div>
                     
 
@@ -62,7 +62,7 @@ function Post( { post, setCurrentId } ) {
 
                         {post.tags.length > 0 ? <p class="card-text">{post.tags.map(el => `#${el} `)}</p> : ""}
                         <h5 class="card-title">{post.title}</h5>
-                        <p class="card-text">{post.message}</p>
+                        <p class="card-text">{post.message.length > 100 ? `${post.message.substring(0, 100)}...Read more` : post.message}</p>
                     </div>
                 </div>
                 

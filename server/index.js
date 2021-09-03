@@ -37,7 +37,7 @@ app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
 app.get('/', (req,res) => {
-    res.send('Hello to my social app project API');
+    res.send('<div style="height: 100vh; display: flex; justify-content: center; align-items: center"><h1 style="font-family: Arial, sans-serif">Hello to my social app project API</h1></div>');
 })
 
 

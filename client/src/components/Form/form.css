@@ -1,0 +1,21 @@
+.post-form textarea:focus {
+    border-color: transparent;
+    border: 1px solid #ced4da;
+    resize: none;
+    outline: none;
+    box-shadow: unset;
+}
+
+.post-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+
+.error-border {
+    border-color: red;
+}
+
+.error-border:focus {
+    border-color: red !important;
+}

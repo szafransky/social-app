@@ -16,7 +16,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    id: { type: String }
+    id: { type: String }, 
+    image: { type:  String }, 
+    bio: { type: String },
+    age: { type: Number }
 })
 
 //create post model

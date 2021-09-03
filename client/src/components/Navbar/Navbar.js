@@ -12,6 +12,10 @@ function Navbar() {
     const history = useHistory();
     const location = useLocation();
 
+    const userId = user?.result?._id || user?.result?.googleId;
+    console.log(userId);
+    
+
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
         history.push('/');
@@ -32,10 +36,14 @@ function Navbar() {
 
     }, [location])
 
-    let imageUrl = user?.result?.imageUrl != undefined ? user.result?.imageUrl : "";
+    let imageUrl = user?.result?.image != undefined ? user.result?.image : "";
 
     const openHome = () => {
         history.push('/');
+    }
+
+    const showUser = () => {
+        history.push(`/users/${userId}`);
     }
     
 
@@ -43,12 +51,15 @@ function Navbar() {
         <div className="nav-bar">
             <nav>
                 {/*  */}
-                    <div></div>
+                    <div className="users-button-container">
+                        <Link to='/users' class="btn btn-outline-primary users-button">Users</Link>
+                    </div>
+                    
                     <h1 onClick={openHome}  className="py-4 text-center logo">Szafranski SocialNet</h1>
                     <div class="user-container">
                         {user ? <><div className="user-data">
-                        {imageUrl == "" ? <div className="user-photo" style={{background: 'grey'}}><strong className="initial">{user.result.name.slice(0,1)}</strong></div> : <div className="user-photo" style={{background: `url(${imageUrl})`, backgroundPosition: 'center', backgroundSize: 'contain'}}></div>}
-                            <p>{user.result.name}</p>
+                        {imageUrl == "" ? <div className="user-photo" style={{background: 'grey'}}><strong className="initial">{user.result.name.slice(0,1)}</strong></div> : <div className="user-photo" style={{background: `url(${imageUrl})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>}
+                            <p style={{cursor: 'pointer'}} onClick={showUser}>{user.result.name}</p>
                         </div>
                             <Link onClick={logout} class="btn btn-outline-primary">Log out</Link>
                         </>

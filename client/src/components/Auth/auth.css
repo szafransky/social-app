@@ -42,6 +42,14 @@
     background: unset;
 }
 
+input.error-border {
+    border-color: red !important;
+}
+
+input.error-border:focus {
+    border-color: red !important;
+}
+
 @media only screen and (max-width: 780px) {
 
     .auth-container {

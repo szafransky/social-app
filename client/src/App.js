@@ -6,6 +6,8 @@ import Auth from './components/Auth/Auth'
 import PostDetails from './components/PostDetails/PostDetails'
 import { useSelector } from 'react-redux'
 import Footer from './components/Footer/Footer'
+import User from './components/User/User'
+import UserList from './components/User/UserList'
 
 
 
@@ -39,6 +41,8 @@ function App() {
                     <Route path='/posts/search' exact component={Home} />
                     <Route path='/posts/:id' exact component={PostDetails} />
                     <Route path='/auth' exact component={() => (!user ? <Auth /> : <Redirect to='/posts' />)} />
+                    <Route path='/users/:id' exact component={User} />
+                    <Route path='/users' exact component={UserList} />
                 </Switch>
                 <Footer />
             </div>

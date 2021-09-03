@@ -29,6 +29,14 @@ nav h1 {
     margin-left: 40px;
 }
 
+nav {
+    align-items: center;
+}
+
+.users-button {
+    margin-left: 20px;
+}
+
 .user-data {
     display: flex;
     align-items: center;
@@ -47,6 +55,9 @@ nav h1 {
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+    background-repeat: no-repeat;
+    background-position: center !important;
+    background-size: cover !important;
 }
 
 .user-photo .initial {
@@ -89,6 +100,13 @@ input:focus {
     box-shadow: none !important;
 }
 
+.users-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 @media only screen and (max-width: 780px) {
     .logo {
        margin-left: unset;
@@ -101,6 +119,8 @@ input:focus {
     nav {
         flex-direction: column;
     }
+
+    
 
     .user-container {
         flex-direction: row;
